@@ -1,0 +1,31 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+export function useActiveSection(ids: string[]) {
+  const [active, setActive] = useState(ids[0]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visible?.target.id) {
+          setActive(visible.target.id);
+        }
+      },
+      { threshold: [0.2, 0.5, 0.8], rootMargin: "-20% 0px -40% 0px" },
+    );
+
+    ids.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, [ids]);
+
+  return active;
+}

@@ -1,26 +1,172 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafaf9;
+  --surface: #f4f4f1;
+  --surface-raised: #ffffff;
+  --surface-inset: #f0efea;
+
+  --border: rgba(0, 0, 0, 0.06);
+  --border-strong: rgba(0, 0, 0, 0.12);
+
+  --ink: #0a0a0a;
+  --ink-2: #404040;
+  --ink-3: #737373;
+  --ink-4: #a3a3a3;
+
+  --accent: #8b6f47;
+  --accent-fg: #ffffff;
+
+  --shadow-soft: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.dark {
+  --background: #0a0a0a;
+  --surface: #101010;
+  --surface-raised: #141414;
+  --surface-inset: #0d0d0d;
+
+  --border: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.14);
+
+  --ink: #fafaf9;
+  --ink-2: #d4d4d4;
+  --ink-3: #a3a3a3;
+  --ink-4: #737373;
+
+  --accent: #c8a982;
+  --accent-fg: #0a0a0a;
+
+  --shadow-soft: 0 1px 0 rgba(0, 0, 0, 0.4);
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-inset: var(--surface-inset);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-ink-4: var(--ink-4);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--accent) 30%, transparent);
+    color: var(--ink);
+  }
+
+  section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 800px;
+    scroll-margin-top: 5rem;
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  a {
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer utilities {
+  .section-shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .text-ink {
+    color: var(--ink);
+  }
+  .text-ink-2 {
+    color: var(--ink-2);
+  }
+  .text-ink-3 {
+    color: var(--ink-3);
+  }
+  .text-ink-4 {
+    color: var(--ink-4);
+  }
+  .text-accent {
+    color: var(--accent);
+  }
+  .bg-surface {
+    background: var(--surface);
+  }
+  .bg-surface-raised {
+    background: var(--surface-raised);
+  }
+  .bg-surface-inset {
+    background: var(--surface-inset);
+  }
+  .border-hairline {
+    border-color: var(--border);
+  }
+  .border-hairline-strong {
+    border-color: var(--border-strong);
+  }
+  .ring-accent {
+    --tw-ring-color: var(--accent);
+  }
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 1.5;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 500;
+  }
+  .display {
+    font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+  }
 }
