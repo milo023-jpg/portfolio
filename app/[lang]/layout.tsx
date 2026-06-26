@@ -9,7 +9,7 @@ import { hasLocale, LOCALES, DEFAULT_LOCALE } from "@/lib/locale";
 import type { Locale } from "@/types/i18n";
 import "../globals.css";
 
-const SITE_URL = "https://camiloartunduaga.dev";
+const SITE_URL = "https://camiloartunduaga.vercel.app";
 
 interface LayoutProps {
   children: React.ReactNode;

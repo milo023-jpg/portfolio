@@ -33,7 +33,7 @@ export function PortraitCard() {
       </div>
       <div className="mt-3 flex items-center gap-2 text-ink-4 font-mono text-[11px] tracking-wider">
         <span className="inline-block size-1 rounded-full bg-accent" />
-        <span>camiloartunduaga.dev</span>
+        <span>camiloartunduaga.vercel.app</span>
       </div>
     </motion.div>
   );

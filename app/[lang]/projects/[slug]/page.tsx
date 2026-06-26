@@ -6,7 +6,7 @@ import { ProjectDetailContent } from "@/components/features/project-detail-conte
 import { projects } from "@/content/projects";
 import { LOCALES, DEFAULT_LOCALE, hasLocale } from "@/lib/locale";
 
-const SITE_URL = "https://camiloartunduaga.dev";
+const SITE_URL = "https://camiloartunduaga.vercel.app";
 
 interface PageProps {
   params: Promise<{ lang: string; slug: string }>;
