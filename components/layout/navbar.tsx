@@ -21,7 +21,7 @@ const navItems = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   const active = useActiveSection([
     "about",
     "tooling",
@@ -51,7 +51,7 @@ export function Navbar() {
         className="section-shell flex items-center justify-between h-16"
       >
         <Link
-          href="/"
+          href={`/${locale}`}
           className="flex items-center gap-2.5 group"
           aria-label={t.a11y.nav.home}
         >

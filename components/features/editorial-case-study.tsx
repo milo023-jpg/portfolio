@@ -41,7 +41,7 @@ export function EditorialCaseStudy({
 
         <h3 className="text-2xl md:text-[28px] leading-[1.15] tracking-[-0.01em] font-medium text-ink">
           <Link
-            href={`/projects/${project.slug}`}
+            href={`/${locale}/projects/${project.slug}`}
             className="hover:text-accent transition-colors"
           >
             {project.name}
@@ -75,7 +75,7 @@ export function EditorialCaseStudy({
         </div>
 
         <Link
-          href={`/projects/${project.slug}`}
+          href={`/${locale}/projects/${project.slug}`}
           className="inline-flex items-center gap-2 eyebrow text-ink hover:text-accent transition-colors pt-2"
         >
           {t.projects.caseStudy}
@@ -86,7 +86,7 @@ export function EditorialCaseStudy({
       <div className={`lg:col-span-7 ${reverse ? "lg:order-1" : ""}`}>
         <MotionCard>
           <Link
-            href={`/projects/${project.slug}`}
+            href={`/${locale}/projects/${project.slug}`}
             className="block group"
             aria-label={t.projects.caseStudy}
           >

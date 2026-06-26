@@ -15,7 +15,7 @@ const HIGHLIGHT_TOOLS = [
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   const total = HIGHLIGHT_TOOLS.length;
 
   return (
@@ -23,7 +23,7 @@ export function Footer() {
       <div className="section-shell py-12 md:py-16 space-y-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div className="space-y-3">
-            <Link href="/" className="inline-flex items-center gap-2.5 group">
+            <Link href={`/${locale}`} className="inline-flex items-center gap-2.5 group">
               <span
                 aria-hidden
                 className="inline-flex items-center justify-center size-7 border border-hairline-strong rounded-sm font-mono text-[11px] text-ink group-hover:border-ink-3 transition-colors"

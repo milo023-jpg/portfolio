@@ -18,7 +18,7 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
     <article className="min-h-screen pt-24 md:pt-32 pb-20">
       <div className="section-shell">
         <Link
-          href="/#projects"
+          href={`/${locale}#projects`}
           className="inline-flex items-center gap-2 eyebrow text-ink-3 hover:text-ink transition-colors"
         >
           <span aria-hidden>←</span>
@@ -201,7 +201,7 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
 
         <div className="mt-20 pt-8 border-t border-hairline">
           <Link
-            href="/#projects"
+            href={`/${locale}#projects`}
             className="inline-flex items-center gap-2 eyebrow text-ink-3 hover:text-ink transition-colors"
           >
             <span aria-hidden>←</span>
