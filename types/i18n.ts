@@ -43,6 +43,7 @@ export type TranslationSchema = {
     subtitle: LocalizedText;
     ctaPrimary: string;
     ctaSecondary: string;
+    ctaDownload: string;
     lastUpdated: string;
   };
   currentlyBuilding: {

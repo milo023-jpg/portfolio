@@ -52,6 +52,9 @@ ctaPrimary:
 ctaSecondary:
   en: Get in touch
   es: Hablemos
+ctaDownload:                                  # botón que descarga el CV (archivo en public/CV...pdf)
+  en: Download CV
+  es: Descargar CV
 micro:                                       # línea pequeña debajo de los CTAs
   en: #Omitir esto
 lastUpdated:                                 # etiqueta de "última actualización" en hero

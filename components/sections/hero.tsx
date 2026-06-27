@@ -1,8 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import { Download } from "lucide-react";
 import { PortraitCard } from "@/components/features/portrait-card";
 import { useLanguage } from "@/components/providers/language-provider";
+import type { Locale } from "@/types/i18n";
+
+const cvHref: Record<Locale, string> = {
+  en: "/CV%20Camilo%20Artunduaga%20en.pdf",
+  es: "/CV%20Camilo%20Artunduaga%20es.pdf",
+};
 
 export function HeroSection() {
   const { locale, t } = useLanguage();
@@ -47,6 +54,15 @@ export function HeroSection() {
               >
                 {t.hero.ctaSecondary}
               </Link>
+              <a
+                href={cvHref[locale]}
+                download
+                aria-label={t.hero.ctaDownload}
+                className="inline-flex items-center gap-2 h-11 px-5 rounded-sm border border-hairline-strong text-ink font-medium text-sm hover:border-ink-3 transition-colors"
+              >
+                <Download aria-hidden className="size-4" />
+                {t.hero.ctaDownload}
+              </a>
             </div>
           </div>
 

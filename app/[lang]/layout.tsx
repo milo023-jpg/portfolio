@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { LanguageProvider } from "@/components/providers/language-provider";
 import { Backdrop } from "@/components/ui/backdrop";
 import { hasLocale, LOCALES, DEFAULT_LOCALE } from "@/lib/locale";
+import { themeScript } from "@/lib/theme-script";
 import type { Locale } from "@/types/i18n";
 import "../globals.css";
 
@@ -137,7 +139,12 @@ export default async function RootLayout({
       className={`${GeistSans.variable} ${GeistMono.variable}`}
     >
       <body className="min-h-full antialiased">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: themeScript }}
+        />
+        <ThemeProvider>
           <LanguageProvider locale={lang as Locale}>
             <Backdrop />
             {children}

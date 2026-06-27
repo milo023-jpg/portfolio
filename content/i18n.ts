@@ -46,6 +46,7 @@ export const dictionary: Record<Locale, TranslationSchema> = {
       },
       ctaPrimary: "Ver el trabajo",
       ctaSecondary: "Hablemos",
+      ctaDownload: "Descargar CV",
       lastUpdated: "Última actualización",
     },
     currentlyBuilding: {
@@ -232,6 +233,7 @@ export const dictionary: Record<Locale, TranslationSchema> = {
       },
       ctaPrimary: "See the work",
       ctaSecondary: "Get in touch",
+      ctaDownload: "Download CV",
       lastUpdated: "Last updated",
     },
     currentlyBuilding: {
