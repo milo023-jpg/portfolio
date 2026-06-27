@@ -16,11 +16,27 @@ export function PortraitCard() {
       <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm border border-hairline bg-surface-raised shadow-soft">
         <Image
           src="/portrait.svg"
+          alt=""
+          fill
+          sizes="(max-width: 1024px) 100vw, 40vw"
+          priority
+          className="object-cover"
+        />
+        <Image
+          src="/foto.png?v=2"
           alt="Camilo Artunduaga"
           fill
           sizes="(max-width: 1024px) 100vw, 40vw"
           priority
           className="object-cover"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, transparent 28%, color-mix(in oklab, var(--background) 55%, transparent) 70%, color-mix(in oklab, var(--background) 88%, transparent) 100%)",
+          }}
         />
         <div
           aria-hidden
